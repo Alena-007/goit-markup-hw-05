@@ -100,48 +100,6 @@ img {
     overflow: hidden;
 }
 
-.logo {
-    font-family: var(--secondary-font-family);
-    font-weight: 700;
-    font-size: 26px;
-    line-height: 1.19;
-    letter-spacing: 0.03em;
-}
-
-.nav-link:hover,
-.nav-link:focus,
-.tel-mail-link:hover,
-.tel-mail-link:focus,
-.address-link:hover,
-.address-link:focus,
-.contacts-link:hover,
-.contacts-link:focus {
-    color: var(--primary-accent-color);
-}
-
-.filter-projects-btn:hover,
-.filter-projects-btn:focus {
-    background-color: var(--primary-accent-color);
-    color: var(--primary-text-color-theme-dark);
-    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
-        0px 2px 2px rgba(0, 0, 0, 0.12);
-}
-
-.hero-btn:hover,
-.hero-btn:focus {
-    background-color: var(--secondary-accent-color);
-}
-
-.tel-mail-icon {
-    margin-right: 10px;
-    fill: var(--secondary-text-color-theme-light);
-}
-
-.tel-mail-link:hover .tel-mail-icon,
-.tel-mail-link:focus .tel-mail-icon {
-    fill: var(--primary-accent-color);
-}
-
 .social-list {
     display: flex;
     justify-content: center;
@@ -155,6 +113,8 @@ img {
     height: 44px;
     background-color: #fff;
     border-radius: 50%;
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-link-dark {
@@ -165,6 +125,8 @@ img {
     height: 44px;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-item:not(:last-child) {
@@ -173,6 +135,8 @@ img {
 
 .social-icon {
     fill: #afb1b8;
+
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-icon-dark {
@@ -199,6 +163,15 @@ img {
 /* ========= END COMPONENTS ========= */
 
 /* ========= START LOGO ========= */
+
+.logo {
+    font-family: var(--secondary-font-family);
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.19;
+    letter-spacing: 0.03em;
+}
+
 .logo-accent {
     color: var(--primary-accent-color);
 }
@@ -237,12 +210,25 @@ img {
     color: var(--primary-accent-color);
 }
 
+.current::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: #2196f3;
+    border-radius: 2px;
+}
+
 .nav-item:not(:last-child) {
     margin-right: 50px;
 }
 
 .nav-link {
     display: block;
+    position: relative;
     padding-top: 32px;
     padding-bottom: 32px;
     font-weight: 500;
@@ -250,6 +236,19 @@ img {
     line-height: 1.14;
     letter-spacing: 0.02em;
     color: var(--primary-text-color-theme-light);
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover,
+.nav-link:focus,
+.tel-mail-link:hover,
+.tel-mail-link:focus,
+.address-link:hover,
+.address-link:focus,
+.contacts-link:hover,
+.contacts-link:focus {
+    color: var(--primary-accent-color);
 }
 
 .tel-mail {
@@ -271,6 +270,20 @@ img {
     line-height: 1.14;
     letter-spacing: 0.02em;
     color: var(--secondary-text-color-theme-light);
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tel-mail-icon {
+    margin-right: 10px;
+    fill: var(--secondary-text-color-theme-light);
+
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tel-mail-link:hover .tel-mail-icon,
+.tel-mail-link:focus .tel-mail-icon {
+    fill: var(--primary-accent-color);
 }
 
 /* ========= END HEADER ========= */
@@ -299,7 +312,7 @@ img {
 .hero-btn {
     min-width: 200px;
     padding: 10px 32px;
-    background: var(--primary-accent-color);
+    background-color: var(--primary-accent-color);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     border-radius: 4px;
     font-family: inherit;
@@ -309,6 +322,13 @@ img {
     letter-spacing: 0.06em;
     color: var(--primary-text-color-theme-dark);
     cursor: pointer;
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-btn:hover,
+.hero-btn:focus {
+    background-color: var(--secondary-accent-color);
 }
 /* ========= END HERO ========= */
 
@@ -368,6 +388,7 @@ img {
 }
 
 .services-item {
+    position: relative;
     margin-bottom: 30px;
     flex-basis: calc((100% - 60px) / 3);
 }
@@ -378,6 +399,23 @@ img {
 
 .services-item:nth-last-child(-n + 3) {
     margin-bottom: 0;
+}
+
+.services-label {
+    padding: 27px 10px;
+    position: absolute;
+    content: '';
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.14;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #ffffff;
+    width: 370px;
+    height: 70px;
+    bottom: 0;
+    background: rgba(47, 48, 58, 0.8);
 }
 
 /* ========= END SERVICES ========= */
@@ -446,6 +484,8 @@ img {
 
 .clients-icon {
     fill: #afb1b8;
+
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-link {
@@ -457,6 +497,8 @@ img {
     border: 1px solid #afb1b8;
     border-radius: 4px;
     color: #afb1b8;
+
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-link:hover,
@@ -493,10 +535,22 @@ img {
     text-align: center;
     letter-spacing: 0.03em;
     color: var(--primary-text-color-theme-light);
-    background: var(--secondary-background-color-light);
+    background-color: var(--secondary-background-color-light);
     border-radius: 4px;
     border-style: none;
     cursor: pointer;
+    box-shadow: none;
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.filter-projects-btn:hover,
+.filter-projects-btn:focus {
+    background-color: var(--primary-accent-color);
+    color: var(--primary-text-color-theme-dark);
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+        0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 .projects-list {
@@ -520,12 +574,40 @@ img {
 
 .projects-link {
     display: block;
+    box-shadow: none;
+
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .projects-link:hover,
 .projects-link:focus {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
         1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.projects-thumb {
+    position: relative;
+}
+
+.projects-overlay {
+    position: absolute;
+    width: 370px;
+    height: 294px;
+    top: 0;
+    padding: 63px 24px;
+    background: rgba(33, 150, 243, 0.9);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.56;
+    letter-spacing: 0.03em;
+    color: #ffffff;
+
+    opacity: 0;
+}
+
+.projects-overlay:hover,
+.projects-overlay:focus {
+    opacity: 1;
 }
 
 .projects-wrap {
@@ -572,6 +654,8 @@ img {
     line-height: 1.71;
     letter-spacing: 0.03em;
     color: var(--primary-text-color-theme-dark);
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contacts-list:not(:last-child) {
@@ -585,6 +669,8 @@ img {
     line-height: 1.71;
     letter-spacing: 0.03em;
     color: rgba(255, 255, 255, 0.6);
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-title {
